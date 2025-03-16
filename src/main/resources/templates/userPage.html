@@ -49,7 +49,8 @@
     <p class="info"><strong>Фамилия:</strong> <span th:text="${user.surname}"></span></p>
     <p class="info"><strong>Возраст:</strong> <span th:text="${user.age}"></span></p>
     <p class="info"><strong>Логин:</strong> <span th:text="${user.username}"></span></p>
-    <p class="info"><strong>Роль:</strong> <span th:each="role : ${user.roles}" th:text="${role.name + ' '}" style="margin-right: 5px;"></span></p>
+    <p class="info"><strong>Роль:</strong> <span th:each="role : ${user.roles}" th:text="${role.name + ' '}"
+                                                 style="margin-right: 5px;"></span></p>
 </div>
 
 <a href="#" class="button logout-button"

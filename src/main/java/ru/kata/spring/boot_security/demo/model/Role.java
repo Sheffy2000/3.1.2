@@ -8,8 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 
-import java.io.Serializable;
-
 @Entity
 @Table(name = "Roles")
 public class Role implements GrantedAuthority {
@@ -23,8 +21,6 @@ public class Role implements GrantedAuthority {
 
     public Role() {
     }
-
-    ;
 
     public Role(String name) {
         this.name = name;
