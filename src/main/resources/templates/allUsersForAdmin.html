@@ -67,7 +67,10 @@
         </td>
         <td>
             <a th:href="@{/editUser(id=${user.id})}">Обновить</a> |
-            <a th:href="@{/deleteUser(id=${user.id})}">Удалить</a>
+            <form th:action="@{/deleteUser}" method = "post">
+                <input type = "hidden" name = "id" th:value = "${user.id}">
+                <button type = "submit">Удалить</button>
+            </form>
         </td>
     </tr>
     </tbody>

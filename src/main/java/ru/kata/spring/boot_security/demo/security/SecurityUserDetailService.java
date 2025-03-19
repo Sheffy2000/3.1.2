@@ -1,12 +1,10 @@
 package ru.kata.spring.boot_security.demo.security;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.dao.UserRepo;
 import ru.kata.spring.boot_security.demo.model.User;
 
@@ -19,7 +17,6 @@ public class SecurityUserDetailService implements UserDetailsService {
         this.userRepo = userRepo;
     }
 
-    @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepo.findByUsername (username);
@@ -28,9 +25,6 @@ public class SecurityUserDetailService implements UserDetailsService {
             System.out.println ("User not found: " + username);
             throw new UsernameNotFoundException ("User not found: " + username);
         }
-
-        Hibernate.initialize (user.getRoles ());
-
         return user;
     }
 }

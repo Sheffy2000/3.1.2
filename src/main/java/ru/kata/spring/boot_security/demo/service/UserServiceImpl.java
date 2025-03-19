@@ -48,7 +48,6 @@ public class UserServiceImpl implements UserService {
         return userRepo.findByUsername (username);
     }
 
-    @Transactional
     @Override
     public User getUserById(int id) {
         return userRepo.findById (id).orElseThrow (() -> new EntityNotFoundException ("Такого пользователя нет"));
@@ -62,4 +61,5 @@ public class UserServiceImpl implements UserService {
         }
         userRepo.deleteById(id);
     }
+
 }
